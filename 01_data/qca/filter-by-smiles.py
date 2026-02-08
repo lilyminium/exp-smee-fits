@@ -62,15 +62,14 @@ def main(
     test_dataset = input_dataset.filter(
         lambda example: example["smiles"] in test_smiles
     )
-    output_dataset = pathlib.Path(output_dataset)
-    output_dataset.mkdir(parents=True, exist_ok=True)
-    train_path = output_dataset / "train"
-    valid_path = output_dataset/ "validation"
-    test_path = output_dataset / "test"
 
-    train_dataset.save_to_disk(train_path)
-    valid_dataset.save_to_disk(valid_path)
-    test_dataset.save_to_disk(test_path)
+    dataset_dict = datasets.DatasetDict({
+        "train": train_dataset,
+        "validation": valid_dataset,
+        "test": test_dataset,
+    })
+    dataset_dict.save_to_disk(output_dataset)
+
 
     logger.info(f"Saved filtered datasets to {output_dataset}")
 
