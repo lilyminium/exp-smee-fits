@@ -1,0 +1,36 @@
+name: smee-stack-dev
+channels:
+  - conda-forge
+  - openeye
+
+dependencies:
+  - openff-toolkit >=0.18
+  - openff-interchange
+  - openff-nagl
+  - openff-qcsubmit
+  - qcportal
+  - openeye-toolkits
+  - rdkit
+  - qubekit
+  - openmm
+
+  # pytorch and related
+  - pyarrow
+  - nnpops
+  - datasets
+  - pydantic
+
+  # other
+  - mdanalysis
+  - seaborn
+  - tqdm
+  - nglview
+  - click
+  - ipykernel
+  - jupyter
+  - nbconvert
+
+  - pip:
+    - torch
+    - torchvision
+    - loguru

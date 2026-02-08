@@ -1,0 +1,7 @@
+2026-02-08 10:29:04.810 | INFO     | __main__:main:66 - Loaded 12000 molecules from smiles/combined-diverse.smi
+Generating fingerprints:   0%|          | 0/12000 [00:00<?, ?it/s]Generating fingerprints:  28%|██▊       | 3359/12000 [00:00<00:00, 33583.87it/s]Generating fingerprints:  58%|█████▊    | 7017/12000 [00:00<00:00, 35345.14it/s]Generating fingerprints:  93%|█████████▎| 11135/12000 [00:00<00:00, 38006.72it/s]Generating fingerprints: 100%|██████████| 12000/12000 [00:00<00:00, 37611.79it/s]
+2026-02-08 10:29:06.436 | INFO     | __main__:main:77 - Selecting 1200 test molecules
+2026-02-08 10:29:06.437 | INFO     | __main__:main:79 - Selecting 1200 validation molecules
+2026-02-08 10:29:06.437 | INFO     | __main__:main:83 - Selecting test molecules
+2026-02-08 10:29:06.647 | INFO     | __main__:main:90 - Selecting validation molecules
+2026-02-08 10:29:07.136 | INFO     | __main__:main:115 - Wrote train/valid/test split to smiles/combined-diverse-split.json
