@@ -1,0 +1,1 @@
+2026-02-12 01:54:59.382 | INFO     | __main__:main:42 - Extracted 74585 SMILES from ../qca/sage-data-pool/optimization/OpenFF Industry Benchmark Season 1 v1.2.parquet
