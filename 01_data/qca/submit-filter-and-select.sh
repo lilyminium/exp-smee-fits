@@ -17,23 +17,23 @@ conda env export > environment.yml
 
 # combine opt and torsiondrives
 
-#python combine-opt-and-torsiondrive.py      \
-#    -i output/optimizations/dataset/minimum \
-#    -i output/torsiondrives/dataset/minimum \
-#    -o output/combined/minimum-all > logs/combine-opt-and-torsiondrive-minimum.txt 2>&1
+python combine-opt-and-torsiondrive.py      \
+    -i output/optimizations/dataset/minimum \
+    -i output/torsiondrives/dataset/minimum \
+    -o output/combined/minimum-all > logs/combine-opt-and-torsiondrive-minimum.txt 2>&1
 
-#python combine-opt-and-torsiondrive.py          \
-#    -i output/optimizations/dataset/trajectory  \
-#    -i output/torsiondrives/dataset/trajectory  \
-#    -o output/combined/trajectory-all > logs/combine-opt-and-torsiondrive-trajectory.txt 2>&1
+python combine-opt-and-torsiondrive.py          \
+    -i output/optimizations/dataset/trajectory  \
+    -i output/torsiondrives/dataset/trajectory  \
+    -o output/combined/trajectory-all > logs/combine-opt-and-torsiondrive-trajectory.txt 2>&1
 
 # filter parameterizable -- we can do this just once
 
-#python select-parameterizable-smiles.py        \
-#    -i output/combined/minimum-all                 \
-#    -o smiles/combined-parameterizable.smi     \
-#    -ff openff-2.3.0.offxml                    \
-#    -np 8 > logs/select-parameterizable-smiles.txt 2>&1
+python select-parameterizable-smiles.py        \
+    -i output/combined/minimum-all                 \
+    -o smiles/combined-parameterizable.smi     \
+    -ff openff-2.3.0.offxml                    \
+    -np 8 > logs/select-parameterizable-smiles.txt 2>&1
 
 # select diverse
 python select-diverse-smiles.py                \
@@ -47,13 +47,3 @@ python split-train-test.py \
     -o smiles/combined-diverse-split.json \
     -tf 0.8  -vf 0.1 > logs/split-train-test.txt 2>&1
 
-# convert back to dataset
-python filter-by-smiles.py \
-    -i output/combined/minimum-all \
-    -s smiles/combined-diverse-split.json \
-    -o output/combined/minimum-diverse > logs/filter-by-smiles-minimum.txt 2>&1
-
-python filter-by-smiles.py \
-    -i output/combined/trajectory-all \
-    -s smiles/combined-diverse-split.json \
-    -o output/combined/trajectory-diverse > logs/filter-by-smiles-trajectory.txt 2>&1
