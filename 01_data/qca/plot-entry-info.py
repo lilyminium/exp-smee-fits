@@ -106,9 +106,9 @@ def main(
 
     # Plot energy distribution
     plt.figure(figsize=(8, 6))
-    ax = sns.boxplot(x=df["energy"])
+    ax = sns.boxplot(x=df["energy"], whis=(5, 95))
     ax.set_xlabel("Energy (kcal/mol)")
-    ax.set_xscale("log")
+    #ax.set_xscale("log")
     plt.tight_layout()
     energy_file = output_path / "energy_boxplot.png"
     plt.savefig(energy_file, dpi=300)
@@ -117,7 +117,7 @@ def main(
 
     # Plot force RMS distribution
     plt.figure(figsize=(8, 6))
-    ax = sns.boxplot(x=df["force_rms"])
+    ax = sns.boxplot(x=df["force_rms"], whis=(5, 95))
     ax.set_xlabel("Force RMS (kcal/mol/Å)")
     ax.set_xscale("log")
     plt.tight_layout()

@@ -15,13 +15,15 @@ conda activate smee-stack-cuda
 
 conda env export > environment.yml
 
+SUFFIX="-f5-e10"
+
 # convert back to dataset
 python filter-by-smiles.py \
-    -i output/filtered/minimum-all \
+    -i output/filtered${SUFFIX}/minimum-all \
     -s smiles/combined-diverse-split.json \
-    -o output/filtered/minimum-diverse > logs/filter-by-smiles-minimum.txt 2>&1
+    -o output/filtered${SUFFIX}/minimum-diverse > logs/filter-by-smiles-minimum${SUFFIX}.txt 2>&1
 
 python filter-by-smiles.py \
-    -i output/filtered/trajectory-all \
+    -i output/filtered${SUFFIX}/trajectory-all \
     -s smiles/combined-diverse-split.json \
-    -o output/filtered/trajectory-diverse > logs/filter-by-smiles-trajectory.txt 2>&1
+    -o output/filtered${SUFFIX}/trajectory-diverse > logs/filter-by-smiles-trajectory${SUFFIX}.txt 2>&1
