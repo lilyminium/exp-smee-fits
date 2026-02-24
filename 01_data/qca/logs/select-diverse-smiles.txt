@@ -1,0 +1,3 @@
+2026-02-08 11:07:52.798 | INFO     | __main__:main:53 - Loaded 16083 molecules from smiles/combined-parameterizable.smi
+Generating fingerprints:   0%|          | 0/16083 [00:00<?, ?it/s]Generating fingerprints:  22%|██▏       | 3562/16083 [00:00<00:00, 35608.40it/s]Generating fingerprints:  45%|████▌     | 7299/16083 [00:00<00:00, 36640.61it/s]Generating fingerprints:  68%|██████▊   | 11012/16083 [00:00<00:00, 36858.89it/s]Generating fingerprints:  92%|█████████▏| 14819/16083 [00:00<00:00, 37332.99it/s]Generating fingerprints: 100%|██████████| 16083/16083 [00:00<00:00, 37245.58it/s]
+2026-02-08 11:08:02.480 | INFO     | __main__:main:78 - Wrote 12000 selected molecules to smiles/combined-diverse.smi
