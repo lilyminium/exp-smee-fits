@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #SBATCH -J compare-datasets
 #SBATCH -p preemptable
-#SBATCH -t 02:00:00
+#SBATCH -t 01:00:00
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=1
 #SBATCH --mem=64gb
 #SBATCH --output slurm-%x.%A.out
 
@@ -16,13 +16,11 @@ conda activate smee-stack-cuda
 mkdir output
 
 python compare-datasets.py \
-    -od ../qca/output/filtered/minimum-diverse/train           \
-    -sd ../spice/smiles.json \
-    -of output/compare-datasets-diverse-train.pkl \
-    -oi output/compare-datasets-diverse-train.png
+    -i  "../qca/output/combined/minimum-all" "QCArchive" \
+    -i  "../spice/smiles.json" "SPICE" \
+    -i  "../industry-set/smiles.json" "Industry Benchmark v1.2" \
+    --seed 0 \
+    -o  output > compare-datasets.txt 2>&1
 
-python compare-datasets.py \
-    -od ../qca/output/filtered/minimum-all           \
-    -sd ../spice/smiles.json \
-    -of output/compare-datasets-diverse-all.pkl \
-    -oi output/compare-datasets-diverse-all.png
+
+
