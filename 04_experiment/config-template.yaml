@@ -1,0 +1,38 @@
+learning_rate: 0.01
+batch_size: 1000
+# minibatch_size: 256
+n_epochs: 300
+energy_weight: 1
+force_weight: 1
+energy_reference: "mean"
+input_force_field: openff-2.3.0.offxml
+input_dataset: ../../01_data/qca/output/filtered/minimum-diverse
+input_parameterized: ../../03_parameterize/output/openff-2.3.0_all.pkl
+
+parameter_configs:
+  # pulled from Josh Horton's initial experiments
+  # https://github.com/jthorton/SPICE-SMEE/blob/main/fit-v1/training/002-train-valence-adam.py
+  Bonds:
+    cols: ["k", "length"]
+    scales:
+      k: 0.01
+      length: 1.0
+    limits:
+      k: [0.0, null]
+      length: [0.0, null]
+  Angles:
+    cols: ["k", "angle"]
+    scales:
+      k: 0.01
+      angle: 1.0
+    limits:
+      k: [0.0, null]
+      angle: [0.0, 180]
+  ProperTorsions:
+    cols: ["k"]
+    scales:
+      k: 1.0
+  ImproperTorsions:
+    cols: ["k"]
+    scales:
+      k: 1.0
