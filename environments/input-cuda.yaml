@@ -1,0 +1,38 @@
+name: smee-stack-cuda
+channels:
+  - nvidia
+  - conda-forge
+  - openeye
+
+dependencies:
+  - openff-toolkit >=0.18
+  - openff-interchange
+  - openff-nagl
+  - openff-qcsubmit
+  - qcportal
+  - openeye-toolkits
+  - rdkit
+  - qubekit
+  - openmm
+  - cuda-version=12.1
+  - cuda-runtime=12.1.0
+
+  # pytorch and related
+  - pyarrow
+  - nnpops
+  - datasets
+  - pydantic
+
+  # other
+  - mdanalysis
+  - seaborn
+  - tqdm
+  - nglview
+  - click
+  - ipykernel
+  - jupyter
+  - nbconvert
+
+  - pip:
+    - loguru
+    # install smee and descent development versions
